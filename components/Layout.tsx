@@ -1,41 +1,39 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React, { ReactNode } from "react";
+import Link from "next/link";
+import Head from "next/head";
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
+const Layout = ({ children, title = "This is the default title" }: Props) => (
+  <div className="flex justify-center items-center flex-col min-h-screen text-xs font-mono">
     <Head>
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
+      <nav className="bg-green-500 w-screen h-14 flex">
+        <div className="flex items-center justify-center">
+          <Link href="/">
+            <a className="px-3 py-2 hover:bg-gray-50">Home</a>
+          </Link>
+          <Link href="/blog-page">
+            <a className="px-3 py-2 hover:bg-gray-50">Blog</a>
+          </Link>
+          <Link href="/contact-page">
+            <a className="px-3 py-2 hover:bg-gray-50">Contact</a>
+          </Link>
+        </div>
       </nav>
     </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
+    <main className="flex flex-1 justify-center items-center flex-col min-h-screen">
+      {children}
+    </main>
+    <footer className="w-full h-12 flex justify-center items-center border-t">
+      <p className="flex items-center">Powered By UKIYOcreate</p>
     </footer>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
